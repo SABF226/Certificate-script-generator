@@ -31,6 +31,7 @@ import os
 # =========================================================
 
 TEMPLATE_PATH = "FJIFE_Attestation_participants_LV.png"
+SIGNATURE_PATH = "signature.png"
 OUTPUT_FOLDER = "output"
 
 # Police
@@ -49,6 +50,10 @@ NAME_Y = 1024
 # Position du numéro d'attestation
 CERT_NUMBER_X = 1760
 CERT_NUMBER_Y = 760
+
+# Position du cachet signature (bas à droite)
+SIGNATURE_MARGIN_X = 500  # Marge horizontale en pixels
+SIGNATURE_MARGIN_Y = 120  # Marge verticale en pixels
 
 # =========================================================
 # CRÉATION DOSSIER OUTPUT
@@ -71,6 +76,12 @@ participants = pd.read_csv("FJIFE – Attestations_Participants - Feuille 1.csv"
 
 font = ImageFont.truetype(FONT_PATH, FONT_SIZE)
 cert_font = ImageFont.truetype(FONT_PATH, CERT_FONT_SIZE)
+
+# =========================================================
+# CHARGEMENT CACHET SIGNATURE
+# =========================================================
+
+signature = Image.open(SIGNATURE_PATH)
 
 # =========================================================
 # GÉNÉRATION DES ATTESTATIONS
@@ -115,6 +126,11 @@ for index, row in participants.iterrows():
         fill=TEXT_COLOR,
         font=cert_font
     )
+
+    # Ajouter le cachet signature en bas à droite
+    signature_x = image.width - signature.width - SIGNATURE_MARGIN_X
+    signature_y = image.height - signature.height - SIGNATURE_MARGIN_Y
+    image.paste(signature, (signature_x, signature_y), signature)
 
     # Nom du fichier exporté (nettoyer le nom pour éviter les caractères invalides)
     safe_name = participant_name.replace(".", "").replace("/", "").replace("\\", "")
