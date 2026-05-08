@@ -37,6 +37,7 @@ output/
 test_position.png
 Attestation_FJIFE_LV/
 FJIFE_Attestation_participants_LV.png
+signature.png
 # Données personnelles des participants
 *.csv
 
