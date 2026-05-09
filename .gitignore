@@ -34,10 +34,19 @@ env/
 
 # Output files
 output/
+output_cmyk/
+output_a4/
 test_position.png
 Attestation_FJIFE_LV/
 FJIFE_Attestation_participants_LV.png
 signature.png
+FJIFE_SaBf_Atteste.png
+
+# Fichiers générés pour impression
+*.pdf
+*.pptx
+*.tiff
+
 # Données personnelles des participants
 *.csv
 

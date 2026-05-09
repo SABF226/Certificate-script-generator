@@ -37,6 +37,7 @@ OUTPUT_FOLDER = "output"
 # Police
 FONT_PATH = "Montserrat-BoldItalic.ttf"  # Remplacer si besoin
 FONT_SIZE = 96
+CERT_FONT_PATH = "Montserrat-Regular.ttf"
 CERT_FONT_SIZE = 76  # Taille de police pour le numéro d'attestation
 
 # Couleurs FJIFE
@@ -48,7 +49,7 @@ NAME_X = 2590
 NAME_Y = 1024
 
 # Position du numéro d'attestation
-CERT_NUMBER_X = 1760
+CERT_NUMBER_X = 1590
 CERT_NUMBER_Y = 760
 
 # Position du cachet signature (bas à droite)
@@ -75,13 +76,13 @@ participants = pd.read_csv("FJIFE – Attestations_Participants - Feuille 1.csv"
 # =========================================================
 
 font = ImageFont.truetype(FONT_PATH, FONT_SIZE)
-cert_font = ImageFont.truetype(FONT_PATH, CERT_FONT_SIZE)
+cert_font = ImageFont.truetype(CERT_FONT_PATH, CERT_FONT_SIZE)
 
 # =========================================================
-# CHARGEMENT CACHET SIGNATURE
+# CHARGEMENT CACHET SIGNATURE (désactivé temporairement)
 # =========================================================
 
-signature = Image.open(SIGNATURE_PATH)
+# signature = Image.open(SIGNATURE_PATH)
 
 # =========================================================
 # GÉNÉRATION DES ATTESTATIONS
@@ -127,10 +128,10 @@ for index, row in participants.iterrows():
         font=cert_font
     )
 
-    # Ajouter le cachet signature en bas à droite
-    signature_x = image.width - signature.width - SIGNATURE_MARGIN_X
-    signature_y = image.height - signature.height - SIGNATURE_MARGIN_Y
-    image.paste(signature, (signature_x, signature_y), signature)
+    # Ajouter le cachet signature en bas à droite (désactivé temporairement)
+    # signature_x = image.width - signature.width - SIGNATURE_MARGIN_X
+    # signature_y = image.height - signature.height - SIGNATURE_MARGIN_Y
+    # image.paste(signature, (signature_x, signature_y), signature)
 
     # Nom du fichier exporté (nettoyer le nom pour éviter les caractères invalides)
     safe_name = participant_name.replace(".", "").replace("/", "").replace("\\", "")

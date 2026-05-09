@@ -6,28 +6,29 @@ TEMPLATE_PATH = "FJIFE_Attestation_participants_LV.png"
 SIGNATURE_PATH = "signature.png"
 FONT_PATH = "Montserrat-BoldItalic.ttf"
 FONT_SIZE = 96
+CERT_FONT_PATH = "Montserrat-Regular.ttf"
 CERT_FONT_SIZE = 76
 TEXT_COLOR = (0, 0, 0, 0)
 NAME_X = 2590
 NAME_Y = 1024
-CERT_NUMBER_X = 1760
+CERT_NUMBER_X = 1590
 CERT_NUMBER_Y = 760
 SIGNATURE_MARGIN_X = 500  # Marge horizontale en pixels
 SIGNATURE_MARGIN_Y = 120  # Marge verticale en pixels
 
 # Charger le premier participant
 participants = pd.read_csv("FJIFE – Attestations_Participants - Feuille 1.csv")
-participant_name = participants.iloc[45]["Nom"]
+participant_name = participants.iloc[43]["Nom"]
 
 # Génération du numéro d'attestation unique
-cert_number = f"N°AiKDG26.27-FJIFE2026A0046"
+cert_number = f"N°AiKDG26.27-FJIFE2026A0044"
 
 # Charger la police
 font = ImageFont.truetype(FONT_PATH, FONT_SIZE)
-cert_font = ImageFont.truetype(FONT_PATH, CERT_FONT_SIZE)
+cert_font = ImageFont.truetype(CERT_FONT_PATH, CERT_FONT_SIZE)
 
-# Charger le cachet signature
-signature = Image.open(SIGNATURE_PATH)
+# Charger le cachet signature (désactivé temporairement)
+# signature = Image.open(SIGNATURE_PATH)
 
 # Ouvrir le template
 image = Image.open(TEMPLATE_PATH)
@@ -59,10 +60,10 @@ draw.text(
     font=cert_font
 )
 
-# Ajouter le cachet signature en bas à droite
-signature_x = image.width - signature.width - SIGNATURE_MARGIN_X
-signature_y = image.height - signature.height - SIGNATURE_MARGIN_Y
-image.paste(signature, (signature_x, signature_y), signature)
+# Ajouter le cachet signature en bas à droite (désactivé temporairement)
+# signature_x = image.width - signature.width - SIGNATURE_MARGIN_X
+# signature_y = image.height - signature.height - SIGNATURE_MARGIN_Y
+# image.paste(signature, (signature_x, signature_y), signature)
 
 # Sauvegarder le test
 image.save("test_position.png")
