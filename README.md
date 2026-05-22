@@ -207,7 +207,7 @@ Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de
 
 ## 👨‍💻 Auteur
 
-**[Votre Nom]** - *Développeur Python* - [Votre GitHub]
+**Sanon A Ben** - *Développeur Python* - Sabf226
 
 ## 🙏 Remerciements
 
