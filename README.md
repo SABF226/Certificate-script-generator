@@ -42,7 +42,8 @@ This Python script automates the generation of customized participation certific
 
 ## 📁 Project Structure
 
-``
+```
+
 fjife-attestation-generator/
 ├── attestation_generator_script.py    # Main generation script
 ├── test_position.py                   # Quick test script (1 certificate)
@@ -58,7 +59,10 @@ fjife-attestation-generator/
 ├── output_a4/                         # A4 format certificates (PNG)
 ├── requirements.txt                   # Python dependencies
 └── README.md                          # Documentation
+
 ```
+
+
 ## 🎨 Customization
 
 ### Modifying the Template
