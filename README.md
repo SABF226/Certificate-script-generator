@@ -1,95 +1,78 @@
-# FJIFE 2026 - Générateur Automatique d'Attestations
+# FJIFE 2026 - Automatic Certificate Generator
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Contributions](https://img.shields.io/badge/Contributions-Welcome-orange.svg)
 
-## 🎯 Objectif
+## 🎯 Purpose
 
-Ce script Python automatise la génération d'attestations de participation personnalisées pour les événements AIESEC. Il ajoute automatiquement les noms des participants et des numéros d'attestation uniques sur un template d'attestation.
+This Python script automates the generation of customized participation certificates for AIESEC events. It automatically overlays participant names and unique certificate numbers onto a certificate template.
 
-## ✨ Fonctionnalités
+## ✨ Features
 
-- **Génération automatique** : Crée des attestations pour tous les participants à partir d'un fichier CSV
-- **Numérotation unique** : Attribue automatiquement un numéro d'attestation unique à chaque participant
-- **Personnalisation facile** : Ajustez la position, la taille et la couleur du texte selon vos besoins
-- **Support des images HD** : Compatible avec les templates PNG/JPG haute résolution
-- **Centrage automatique** : Le texte est automatiquement centré selon les coordonnées spécifiées
-- **Export PowerPoint** : Rassemble toutes les attestations en une présentation PPT prête à imprimer
-- **Conversion CMJN** : Convertit les images en CMYK pour une impression professionnelle de qualité
-- **Format A4** : Centre les attestations sur des pages A4 paysage avec marges blanches
+- **Automatic Generation**: Creates certificates for all participants using a CSV file.
+- **Unique Numbering**: Automatically assigns a unique certificate number to each participant.
+- **Easy Customization**: Tweak text position, size, and color to fit your needs.
+- **HD Image Support**: Compatible with high-resolution PNG/JPG templates.
+- **Auto-Centering**: Centers text automatically based on specified coordinates.
+- **PowerPoint Export**: Compiles all certificates into a print-ready PPT presentation.
+- **CMYK Conversion**: Converts images to CMYK for professional-grade printing.
+- **A4 Layout**: Centers certificates on landscape A4 pages with white margins.
 
-## 📋 Prérequis
+## 📋 Prerequisites
 
-- Python 3.8 ou supérieur
-- Bibliothèques Python :
+- Python 3.8 or higher
+- Required Python libraries:
   ```bash
   pip install pillow pandas python-pptx img2pdf
   ```
 
 ## 🚀 Installation
 
-1. Clonez ce repository :
+1. Clone this repository:
    ```bash
-   git clone https://github.com/votre-username/fjife-attestation-generator.git
+   git clone https://github.com
    cd fjife-attestation-generator
    ```
 
-2. Installez les dépendances :
+2. Install the dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-## 📁 Structure du projet
+## 📁 Project Structure
 
-```
-fjife-attestation-generator/
-├── attestation_generator_script.py    # Script principal de génération
-├── test_position.py                   # Script de test rapide (1 attestation)
-├── create_ppt.py                      # Créateur de présentation PowerPoint
-├── convert_to_cmyk.py                 # Conversion RGB → CMJN pour imprimeur
-├── create_a4_pdf.py                   # PDF A4 paysage prêt à imprimer
-├── FJIFE_Attestation_participants_LV.png  # Template d'attestation
-├── FJIFE – Attestations_Participants - Feuille 1.csv  # Liste des participants
-├── Montserrat-BoldItalic.ttf          # Police des noms
-├── Montserrat-Regular.ttf             # Police des numéros
-├── output/                            # Attestations générées (PNG)
-├── output_cmyk/                       # Attestations en CMJN (TIFF)
-├── output_a4/                         # Attestations format A4 (PNG)
-├── requirements.txt                   # Dépendances Python
-└── README.md                          # Documentation
-```
+Use code with caution.fjife-attestation-generator/├── attestation_generator_script.py    # Main generation script├── test_position.py                   # Quick test script (1 certificate)├── create_ppt.py                      # PowerPoint presentation builder├── convert_to_cmyk.py                 # RGB → CMYK conversion for printers├── create_a4_pdf.py                   # Print-ready landscape A4 PDF maker├── FJIFE_Attestation_participants_LV.png  # Certificate template├── FJIFE – Attestations_Participants - Feuille 1.csv  # Participant list├── Montserrat-BoldItalic.ttf          # Font for names├── Montserrat-Regular.ttf             # Font for numbers├── output/                            # Generated certificates (PNG)├── output_cmyk/                       # CMYK certificates (TIFF)├── output_a4/                         # A4 format certificates (PNG)├── requirements.txt                   # Python dependencies└── README.md                          # Documentation
+## 🎨 Customization
 
-## 🎨 Personnalisation
+### Modifying the Template
 
-### Modifier le template
+Replace `FJIFE_Attestation_participants_LV.png` with your own template image file.
 
-Remplacez `FJIFE_Attestation_participants_LV.png` par votre propre template.
+### Adjusting Text Placement
 
-### Ajuster la position du texte
-
-Éditez les variables dans `attestation_generator_script.py` :
+Edit the following variables inside `attestation_generator_script.py`:
 
 ```python
-# Position du nom (X, Y)
+# Name positioning coordinates (X, Y)
 NAME_X = 2590
 NAME_Y = 1024
 
-# Position du numéro d'attestation (X, Y)
+# Certificate number positioning coordinates (X, Y)
 CERT_NUMBER_X = 1760
 CERT_NUMBER_Y = 760
 
-# Taille de police
+# Font sizes
 FONT_SIZE = 96
 CERT_FONT_SIZE = 76
 
-# Couleur du texte (R, G, B, A)
+# Text color values (R, G, B, A)
 TEXT_COLOR = (0, 0, 0, 0)  # Transparent
 ```
 
-### Format du fichier CSV
+### CSV File Formatting
 
-Le fichier CSV doit contenir une colonne `Nom` avec les noms des participants :
+Your CSV file must include a `Nom` column containing the participant names:
 
 ```csv
 Nom
@@ -99,138 +82,133 @@ ZONGO Ardjouma Doriane
 ...
 ```
 
-> **Note** : Pour la protection des données personnelles, les fichiers CSV ne sont pas versionnés. Utilisez `participants_example.csv` comme modèle.
+> **Note**: To ensure data privacy, CSV files are excluded from version control. Use `participants_example.csv` as a structural blueprint.
 
-## 📝 Utilisation
+## 📝 Usage Instructions
 
-### 1. Générer les attestations
+### 1. Generate Certificates
 
 ```bash
 python3 attestation_generator_script.py
 ```
 
-Les attestations seront sauvegardées dans `output/`.
+The output files will save directly to the `output/` directory.
 
-### 2. Tester le positionnement (facultatif)
+### 2. Test Text Placement (Optional)
 
 ```bash
 python3 test_position.py
 ```
 
-Génère `test_position.png` pour vérifier la position du texte avant de tout lancer.
+Generates `test_position.png` so you can visually verify the layout before running the full batch.
 
-### 3. Créer un PowerPoint
+### 3. Build a PowerPoint Slideshow
 
 ```bash
 python3 create_ppt.py
 ```
 
-Crée `FJIFE26_Attestations_Ready_to_Print.pptx` avec 1 slide par attestation.
+Compiles `FJIFE26_Attestations_Ready_to_Print.pptx` with exactly one slide per certificate.
 
-### 4. Conversion CMJN (impression pro)
+### 4. Convert to CMYK (For Professional Print Shops)
 
 ```bash
 python3 convert_to_cmyk.py
 ```
 
-Convertit les images en CMYK et crée un PDF multi-pages :
-- `output_cmyk/` — TIFF CMJN (300 DPI)
+Converts images to CMYK color profiles and builds a multi-page file:
+- `output_cmyk/` — Contains CMYK TIFF files (300 DPI)
 - `FJIFE26_Attestations_CMJN_Ready_to_Print.pdf`
 
-### 5. PDF A4 pour imprimeur
+### 5. Generate Layout-Ready A4 PDFs
 
 ```bash
 python3 create_a4_pdf.py
 ```
 
-Crée `FJIFE26_Attestations_A4_Ready_to_Print.pdf` :
-- Format A4 paysage (297×210 mm)
-- Attestations centrées avec marges blanches
-- 300 DPI, prêt à imprimer
+Creates `FJIFE26_Attestations_A4_Ready_to_Print.pdf`:
+- Standard landscape A4 format (297×210 mm)
+- Centered certificates surrounded by clean white margins
+- High-definition 300 DPI resolution ready for production
 
-## 🤝 Contribution
+## 🤝 Contributing
 
-Les contributions sont les bienvenues ! Voici comment vous pouvez aider :
+Contributions make the open-source community thrive! You can help by:
 
-- 🐛 Signaler des bugs
-- 💡 Suggérer de nouvelles fonctionnalités
-- 📚 Améliorer la documentation
-- 🔧 Soumettre des pull requests
+- 🐛 Reporting software bugs
+- 💡 Proposing new functionality
+- 📚 Enhancing documentation layouts
+- 🔧 Submitting code pull requests
 
-### Comment contribuer
+### How to Contribute
 
-1. Fork le projet
-2. Créez une branche pour votre fonctionnalité (`git checkout -b feature/AmazingFeature`)
-3. Commit vos changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrez une Pull Request
+1. Fork the project repository.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your modifications (`git commit -m 'Add some AmazingFeature'`).
+4. Push to your branch (`git push origin feature/AmazingFeature`).
+5. Open a formal Pull Request.
 
-## 📄 Format des numéros d'attestation
+## 📄 Certificate Serial Format
 
-Les numéros d'attestation sont générés automatiquement au format :
-```
-N°AiKDG26.27-FJIFE2026A001
-N°AiKDG26.27-FJIFE2026A002
-...
-```
-
-Vous pouvez modifier ce format dans le script en changeant la ligne :
+Serial identification numbers auto-generate using this sequence format:
+N°AiKDG26.27-FJIFE2026A001N°AiKDG26.27-FJIFE2026A002...
+You can alter this configuration string in the script by modifying this code block:
 ```python
 cert_number = f"N°AiKDG26.27-FJIFE2026A{index + 1:03d}"
 ```
 
-## 🔧 Configuration avancée
+## 🔧 Advanced Configuration
 
-### Police du numéro d'attestation
+### Certificate Number Typography
 
-Par défaut, le numéro d'attestation utilise `Montserrat-Regular.ttf` tandis que le nom utilise `Montserrat-BoldItalic.ttf` :
+By default, serial numbers use `Montserrat-Regular.ttf` while names render in `Montserrat-BoldItalic.ttf`:
 
 ```python
-FONT_PATH = "Montserrat-BoldItalic.ttf"      # Police du nom
-CERT_FONT_PATH = "Montserrat-Regular.ttf"    # Police du numéro
+FONT_PATH = "Montserrat-BoldItalic.ttf"      # Primary font choice for names
+CERT_FONT_PATH = "Montserrat-Regular.ttf"    # Primary font choice for IDs
 ```
 
-### Changer la police
+### Changing System Fonts
 
-Remplacez `Montserrat-BoldItalic.ttf` par votre propre fichier de police (.ttf ou .otf).
+Replace `Montserrat-BoldItalic.ttf` with any custom asset file matching `.ttf` or `.otf` format extensions.
 
-### Couleurs RGB
+### RGB Color Presets
 
-- **Noir** : `(0, 0, 0)`
-- **Blanc** : `(255, 255, 255)`
-- **Bleu AIESEC** : `(3, 126, 243)`
-- **Transparent** : `(0, 0, 0, 0)` — à utiliser si le texte est déjà présent sur le template et que vous souhaitez superposer par-dessus
+- **Black**: `(0, 0, 0)`
+- **White**: `(255, 255, 255)`
+- **AIESEC Blue**: `(3, 126, 243)`
+- **Transparent**: `(0, 0, 0, 0)` — Use this setting if text placeholders exist on the template and you only need to match positions.
 
 ## 📜 License
 
-Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
+This software project is licensed under the terms of the MIT License - check out the [LICENSE](LICENSE) file for complete terms.
 
-## 👨‍💻 Auteur
+## 👨‍💻 Author
 
-**Sanon A Ben** - *Développeur Python* - Sabf226
+**Sanon A Ben** - *Python Developer* - Sabf226
 
-## 🙏 Remerciements
+## 🙏 Acknowledgments
 
-- AIESEC pour l'inspiration et l'opportunité
-- La communauté Python pour les excellentes bibliothèques PIL/Pandas
+- AIESEC for providing workflow inspiration and development opportunities.
+- The global Python ecosystem for maintaining the excellent PIL and Pandas libraries.
 
-## 📞 Support
+## 📞 Support Channels
 
-Pour toute question ou problème, n'hésitez pas à :
-- Ouvrir une issue sur GitHub
-- Contacter l'auteur directement
-
----
-
-## 🖨️ Workflow d'impression recommandé
-
-1. **Générer** les attestations (`python3 attestation_generator_script.py`)
-2. **Vérifier** visuellement le rendu (`test_position.png`)
-3. **Exporter** en PDF A4 (`python3 create_a4_pdf.py`)
-4. **Envoyer** le fichier PDF à l'imprimeur
-
-> **Astuce** : Si l'imprimeur demande du CMJN, utilisez `convert_to_cmyk.py` pour obtenir un PDF en CMYK.
+If you run into issues or have questions:
+- Open an official issue ticket directly on GitHub.
+- Contact the author through direct channels.
 
 ---
 
-**Note** : Ce script a été développé pour l'événement FJIFE 2026 mais peut être facilement adapté pour d'autres événements.
+## 🖨️ Recommended Production Workflow
+
+1. **Batch Generate** all graphics assets (`python3 attestation_generator_script.py`)
+2. **Visually Inspect** layout placements (`test_position.png`)
+3. **Compile Layouts** to clean A4 document media (`python3 create_a4_pdf.py`)
+4. **Deliver** the output PDF file to your local print provider.
+
+> **Pro Tip**: If your print house specifically requests CMYK files, run `convert_to_cmyk.py` to produce native CMYK PDF assets.
+
+---
+
+**Note**: This script was intentionally built for the FJIFE 2026 event setup but adapts effortlessly to other target applications.
