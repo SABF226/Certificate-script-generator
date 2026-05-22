@@ -42,7 +42,23 @@ This Python script automates the generation of customized participation certific
 
 ## 📁 Project Structure
 
-Use code with caution.fjife-attestation-generator/├── attestation_generator_script.py    # Main generation script├── test_position.py                   # Quick test script (1 certificate)├── create_ppt.py                      # PowerPoint presentation builder├── convert_to_cmyk.py                 # RGB → CMYK conversion for printers├── create_a4_pdf.py                   # Print-ready landscape A4 PDF maker├── FJIFE_Attestation_participants_LV.png  # Certificate template├── FJIFE – Attestations_Participants - Feuille 1.csv  # Participant list├── Montserrat-BoldItalic.ttf          # Font for names├── Montserrat-Regular.ttf             # Font for numbers├── output/                            # Generated certificates (PNG)├── output_cmyk/                       # CMYK certificates (TIFF)├── output_a4/                         # A4 format certificates (PNG)├── requirements.txt                   # Python dependencies└── README.md                          # Documentation
+``
+fjife-attestation-generator/
+├── attestation_generator_script.py    # Main generation script
+├── test_position.py                   # Quick test script (1 certificate)
+├── create_ppt.py                      # PowerPoint presentation builder
+├── convert_to_cmyk.py                 # RGB → CMYK conversion for printers
+├── create_a4_pdf.py                   # Print-ready landscape A4 PDF maker
+├── FJIFE_Attestation_participants_LV.png  # Certificate template
+├── FJIFE – Attestations_Participants - Feuille 1.csv  # Participant list
+├── Montserrat-BoldItalic.ttf          # Font for names
+├── Montserrat-Regular.ttf             # Font for numbers
+├── output/                            # Generated certificates (PNG)
+├── output_cmyk/                       # CMYK certificates (TIFF)
+├── output_a4/                         # A4 format certificates (PNG)
+├── requirements.txt                   # Python dependencies
+└── README.md                          # Documentation
+```
 ## 🎨 Customization
 
 ### Modifying the Template
